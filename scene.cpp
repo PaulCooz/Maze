@@ -107,7 +107,7 @@ void MakeNewMaze()
 Scene::Scene(QObject *parent)                                                           // New scene
   : QGraphicsScene(parent), m_activeItem(nullptr)
 {
-    srand(time(NULL));
+    srand(time(nullptr));
 
     cR = cC = 8;
     PassMazes = 0;
