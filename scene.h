@@ -1,7 +1,7 @@
-#ifndef SCENE_H
-#define SCENE_H
+#pragma once
 
 #include <QGraphicsScene>
+#include <QGraphicsView>
 
 class Scene : public QGraphicsScene
 {
@@ -9,14 +9,12 @@ class Scene : public QGraphicsScene
 
 public:
     explicit Scene(QObject *parent = nullptr);
-    void MakeNewMaze();
-    void Output();
+    void NeedKeys();
+    void MakeScene();
+    void UpdateScene(int, int);
 
     QGraphicsItem *m_activeItem;
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
-
 };
-
-#endif // SCENE_H
