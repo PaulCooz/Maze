@@ -1,3 +1,3 @@
 # Maze
-My first simple game;
-Developed in QtCreator;
+My first simple game.
+Developed in QtCreator.
