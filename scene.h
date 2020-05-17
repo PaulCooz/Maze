@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QGraphicsScene>
-#include <QGraphicsView>
 
 class Scene : public QGraphicsScene
 {
