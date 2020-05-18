@@ -6,6 +6,7 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsTextItem>
 #include <QKeyEvent>
+#include <QMessageBox>
 #include <random>
 #include "scene.h"
 
@@ -20,7 +21,7 @@
 #define SetGreen setRgb( 20, 230,  20, 0)
 #define SetCamera(x, y) setSceneRect(CenterX + 2*(x), CenterY + 2*(y), 500, 400);
 
-const int MaxR = 256, MaxC = 256, MaxKeys = 5, FOG = 2;
+const int MaxR = 64, MaxC = 64, MaxKeys = 5, FOG = 2;
 const int STP[4][2] = {{ 0,-1},{-1, 0},{ 0,+1},{+1, 0}};
 const char ROAD = '#', END = '%', KEY = '$', EYE = '0', VOID = ' ', GETBONUS = '-';
 
@@ -91,7 +92,7 @@ void MakeNewMaze()
         if (Map[cx][cy] == ROAD)
         {
             if (DeadEnd(cx, cy) &&
-                rand() % 7 == 0)
+                rand() % 19 == 0)
             {
                 Map[cx][cy] = KEY;
                 nkeys++;
@@ -276,6 +277,16 @@ void Scene::keyPressEvent(QKeyEvent *event)
             {
                 cR++; cC++;
                 PassMazes++;
+
+                if (PassMazes == 40)
+                {
+                    QMessageBox MWin;
+                    MWin.setWindowTitle("Victory");
+                    MWin.setText("YOU WIN!");
+                    MWin.exec();
+
+                    exit(0);
+                }
 
                 MakeNewMaze();
                 MakeScene();
