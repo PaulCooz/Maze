@@ -13,8 +13,8 @@
 #define GoodBorders(x, y) (-1 < (x) && (x) < cR && -1 < (y) && (y) < cC)
 #define Circle(R) QGraphicsEllipseItem(-(R),-(R), 2*(R), 2*(R))
 #define SetColor(item, clr) static_cast<QGraphicsEllipseItem*>(item)->setBrush(clr);
-#define SetWhite setRgb(240, 240, 240, 0)
 #define SetBlack setRgb(  0,   0,   0)
+#define SetWhite setRgb(240, 240, 240, 0)
 #define SetRed   setRgb(255, 120, 120, 0)
 #define SetBlue  setRgb(100, 100, 255, 0)
 #define SetPink  setRgb(210,   0, 220, 0)
